@@ -21,6 +21,9 @@ public class tagger {
         List<List<HasWord>> sentences = MaxentTagger.tokenizeText(new BufferedReader(new FileReader(args[1])));
         for (List<HasWord> sentence : sentences) {
             List<TaggedWord> tSentence = tagger.tagSentence(sentence);
+            for(TaggedWord tw : tSentence) {
+                System.out.println(tw.word() + " --- " + tw.tag());
+            }
             System.out.println(Sentence.listToString(tSentence, false));
         }
     }
